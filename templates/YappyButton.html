@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/brand-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Yappy Button</title>
+    <script type="module" crossorigin src="/index-BIpBWg7x.js"></script>
+    <link rel="stylesheet" crossorigin href="/index-CXt5d-sq.css">
+  </head>
+  <body style="height: 100vh;">
+    <form id="yappyForm" method="POST" action="/api/yappygenerate" style="display: none;">
+      <input type="text" name="orderId" id="orderId" value="{{orderId}}" hidden>
+      <input type="text" name="taxes" id="taxes" value="{{taxes}}" hidden>
+      <input type="text" name="amount" id="amount" value="{{amount}}" hidden>
+    </form>
+    <div class="h-full grid grid-cols-1 grid-rows-12">
+      <div class="row-span-2 flex justify-center py-2 border-b-2 border-[#1d3c77]">
+        <img src="/brand-logo.png" class="w-[250px] object-contain"/>
+      </div>
+      <div class="row-span-8 flex items-center w-full flex-col justify-center text-center gap-5">
+        <div>
+          <p class="font-bold text-xl">Monto a pagar: <span class="italic text-lg underline text-green-600 font-bold">{{amount}} $</span></p>
+        </div>
+        <div id="Yappy_Checkout_Button"></div>
+      </div>
+      <div class="bg-[#1d3c77] row-span-2 text-white text-center font-bold py-2 flex flex-col justify-center">
+        <p>Company Name</p>
+        <p>All Rights Reserved</p>
+        <p><a style="text-decoration: none;" href="mailto:info@phoenixtechsa.com">info@phoenixtechsa.com</a></p>
+        <p>2024</p>
+      </div>
+    </div>
+  </body>
+</html>
