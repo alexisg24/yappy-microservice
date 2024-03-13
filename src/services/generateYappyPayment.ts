@@ -13,19 +13,23 @@ export const generatePayment = async (req: Request, res: Response) => {
     if (orderId || amount || taxes) return errorJson('Invalid order');
     //Can implements axios logic here
     const payment: PaymentInfo = {
-      total: amount + taxes,
-      subtotal: amount,
+      total: parseFloat(amount) + parseFloat(taxes),
+      subtotal: parseFloat(amount),
       shipping: 0.0,
       discount: 0.0,
-      taxes: taxes,
+      taxes: parseFloat(taxes),
       orderId: orderId,
       successUrl: `${process.env.DOMAIN}/successPayment`,
       failUrl: `${process.env.DOMAIN}/failedPayment`,
       tel: process.env.YAPPY_PHONE,
       domain: process.env.DOMAIN ?? '',
     };
+
+    console.log(payment);
+    
     // const response = await yappyClient.getPaymentUrl(payment, false, true) // Pago normal, en modo prueba
     const response = await yappyClient.getPaymentUrl(payment, false); // Pago normal, en modo normal
+    console.log({response});
     if (response.success) {
       return res.status(301).redirect(response?.url ?? '');
     } else {
